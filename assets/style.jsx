@@ -37,14 +37,24 @@ const stylesView = StyleSheet.create({
       fontSize:17,
       fontWeight:"bold"
     },
+    textdefiobser:{
+      fontSize:17,
+      fontWeight:"bold",
+      marginTop:8,
+    },
     textInput: {
-      
       textAlign: 'center',
       backgroundColor: '#DEDEDE',
       float: 'right',
       marginRight:30,
       borderRadius:5,
       marginBottom:20
+    },
+    textRespuesta: {
+      float:'right',
+      color: 'red',
+      marginRight:70,
+      marginTop:8,
     },
     textButtons: {
       color:'black',
@@ -57,7 +67,9 @@ const stylesView = StyleSheet.create({
 
       contenedor:{
         flexDirection:'row',
-        marginTop:50
+        marginTop:20,
+        display:'flex',
+        justifyContent:'center'
       },
       contenedorButtons: {
         backgroundColor:'green',
@@ -74,7 +86,7 @@ const stylesView = StyleSheet.create({
   const stylesButtones = StyleSheet.create({
 
     contenedor:{
-      flexDirection:'colum',
+      flexDirection:'row',
       marginTop:50
     },
     contenedorButtons2: {

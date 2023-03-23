@@ -46,7 +46,7 @@ export default function App() {
 
       if (isNaN(identificacion)!=false) {
         setesValido(false)
-        setmensaje("El campo identificacion debe ser númerico...")
+        setmensaje("La identificacion debe ser númerico.")
       } else if (isNaN(nota1)!=false || isNaN(nota2)!=false || isNaN(nota3)!=false ) {
         setesValido(false)
         setmensaje("Los campos que hacen referencia a las notas deben ser númericos...")
@@ -55,7 +55,7 @@ export default function App() {
         setmensaje("Los campos que hacen referencia a las notas deben ser positivos...")
       } else if (nota1>5 || nota2 >5 || nota3>5 ) {
         setesValido(false)
-        setmensaje("Recuerde que las notas deben estar entre 0 y 5...")
+        setmensaje("Las notas deben estar entre 0 y 5...")
       } else if (identificacion =="" || nombre =="" || asignatura =="" || nota1=="" || nota2=="" || nota3=="" ) {
         setesValido(false)
         setmensaje("Por favor diligenciar todos los campos...")
@@ -75,7 +75,7 @@ export default function App() {
         setesValido(true)
         setdefinitiva(calculoNota);
         setobservacion(explicacionNota);
-        setmensaje("Calculo realizado de forma correcta...")
+        setmensaje("Operación realizda correctamente.")
       }
       }
 
@@ -123,14 +123,14 @@ export default function App() {
     let findId = alumnos.find(alumno => alumno.id == identificacion)
     if (identificacion == '') {
       setesValido(false)
-      setmensaje('Debe colocar la identificación')
+      setmensaje('El campo identificación es obligatorio.')
     } else {
       if (findId == undefined) {
         setesValido(false)
-        setmensaje('Alumno no encontrado')
+        setmensaje('Alumno no encontrado en el sistema.')
       } else {
         setesValido(true)
-        setmensaje('Alumno encontrado')
+        setmensaje('Alumno encontrado Correctamente.')
         setNombre(findId.nombre)
         setAsignatura(findId.asignatura)
         setNota1(findId.nota1)
@@ -204,16 +204,15 @@ export default function App() {
           />
         </Text>
 
-        <Text style={stylesView.textIdentificacion}>Definitiva: 
-          <Text >{definitiva}</Text>
+        <Text style={stylesView.textdefiobser}>Definitiva: 
+          <Text style={stylesView.textRespuesta}>{definitiva}</Text>
         </Text>
 
-        <Text style={stylesView.textIdentificacion}>Observación: 
-          <Text>{observacion}
-          </Text>
+        <Text style={stylesView.textdefiobser}>Observación: 
+          <Text style={stylesView.textRespuesta}>{observacion}</Text>
         </Text>
 
-        <Text style={{color: esValido ? 'green' :'red'}}>{mensaje}</Text>
+        <Text style={{color: esValido ? 'green' :'red',textAlign:'center',marginTop:10,fontWeight:'bold'}}>{mensaje}</Text>
         
         
         <View style={stylesContenedor.contenedor}>
@@ -226,13 +225,19 @@ export default function App() {
             <Text style={stylesView.textButtons} >Guardar</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={stylesButtones.contenedorButtons2} onPress={()=>limpiar()}>
-            <Text style={stylesView.textButtons}>Limpiar</Text>
-          </TouchableOpacity>
+        </View>
 
-          <TouchableOpacity style={stylesButtones.contenedorButtons2} onPress={()=>buscar()}>
-            <Text style={stylesView.textButtons}>Buscar</Text>
-          </TouchableOpacity>
+        <View style={stylesContenedor.contenedor}>
+
+        <TouchableOpacity style={stylesButtones.contenedorButtons2} onPress={()     =>limpiar()}>
+            <Text style={stylesView.textButtons}>Limpiar</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={stylesButtones.contenedorButtons2} onPress={()=>buscar()}>
+          <Text style={stylesView.textButtons}>Buscar</Text>
+        </TouchableOpacity>
+
+
         </View>
 
 
